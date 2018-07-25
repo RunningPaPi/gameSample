@@ -2,6 +2,8 @@ package com.artqiyi.game.core;
 
 import java.util.Random;
 
+import org.springframework.util.Assert;
+
 public class DiceGenerator {
     /**
      *  计算输赢
@@ -37,6 +39,7 @@ public class DiceGenerator {
 	 * @return
 	 */
     public static String getNum(int n){
+    	Assert.isTrue(n>0, "n必须大于0");
         char[] nums = {'1','2','3','4','5','6'};
         char[] newNums = new char[n];
         Random r = new Random();
@@ -52,7 +55,5 @@ public class DiceGenerator {
     	System.out.println(a);
     	System.out.println(b);
     	System.out.println(compute(a, b, 4, 2, false));
-    	
-    	
 	}
 }
